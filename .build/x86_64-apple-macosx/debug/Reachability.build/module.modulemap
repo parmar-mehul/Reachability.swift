@@ -1,0 +1,4 @@
+module Reachability {
+    header "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/Reachability-Swift.h"
+    requires objc
+}

@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/master.swiftdeps"
+  },
+  "/Users/mehul/Downloads/Reachability.swift/Tests/ReachabilityTests.swift": {
+    "dependencies": "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/ReachabilityTests.d",
+    "object": "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/ReachabilityTests.swift.o",
+    "swiftmodule": "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/ReachabilityTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/ReachabilityTests.swiftdeps"
+  }
+}

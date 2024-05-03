@@ -1,0 +1,99 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "Reachability-debug.module": ["<Reachability-debug.module>"]
+  "ReachabilityPackageTests-debug.test": ["<ReachabilityPackageTests-debug.test>"]
+  "ReachabilityTests-debug.module": ["<ReachabilityTests-debug.module>"]
+  "main": ["<Reachability-debug.module>"]
+  "test": ["<Reachability-debug.module>","<ReachabilityPackageTests-debug.test>","<ReachabilityTests-debug.module>"]
+default: "main"
+nodes:
+  "/Users/mehul/Downloads/Reachability.swift/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/mehul/Downloads/Reachability.swift/Tests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/mehul/Downloads/Reachability.swift/Sources/InternetReachability.swift","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/DerivedSources/resource_bundle_accessor.swift"]
+    outputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/sources"]
+    description: "Write auxiliary file /Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/sources"
+
+  "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/InternetReachability.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/resource_bundle_accessor.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/ReachabilityTests.swift.o"]
+    outputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.product/Objects.LinkFileList"
+
+  "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/mehul/Downloads/Reachability.swift/Tests/ReachabilityTests.swift"]
+    outputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/sources"]
+    description: "Write auxiliary file /Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/sources"
+
+  "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability_Reachability.bundle/PrivacyInfo.xcprivacy":
+    tool: copy-tool
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/Sources/PrivacyInfo.xcprivacy"]
+    outputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability_Reachability.bundle/PrivacyInfo.xcprivacy"]
+    description: "Copying /Users/mehul/Downloads/Reachability.swift/Sources/PrivacyInfo.xcprivacy"
+
+  "/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<Reachability-debug.module>":
+    tool: phony
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/InternetReachability.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/resource_bundle_accessor.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.swiftmodule"]
+    outputs: ["<Reachability-debug.module>"]
+
+  "<ReachabilityPackageTests-debug.test>":
+    tool: phony
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.xctest/Contents/MacOS/ReachabilityPackageTests"]
+    outputs: ["<ReachabilityPackageTests-debug.test>"]
+
+  "<ReachabilityTests-debug.module>":
+    tool: phony
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/ReachabilityTests.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.swiftmodule"]
+    outputs: ["<ReachabilityTests-debug.module>"]
+
+  "C.Reachability-debug.module":
+    tool: shell
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/Sources/InternetReachability.swift","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/DerivedSources/resource_bundle_accessor.swift","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","<Reachability-debug.module-resources>","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/sources"]
+    outputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/InternetReachability.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/resource_bundle_accessor.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.swiftmodule"]
+    description: "Compiling Swift Module 'Reachability' (2 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","Reachability","-emit-dependencies","-emit-module","-emit-module-path","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.swiftmodule","-output-file-map","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/sources","-I","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug","-target","x86_64-apple-macosx10.13","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j10","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/Reachability-Swift.h","-color-diagnostics","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g"]
+
+  "C.ReachabilityPackageTests-debug.test":
+    tool: shell
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/InternetReachability.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.build/resource_bundle_accessor.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/ReachabilityTests.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.product/Objects.LinkFileList"]
+    outputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.xctest/Contents/MacOS/ReachabilityPackageTests"]
+    description: "Linking ./.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.xctest/Contents/MacOS/ReachabilityPackageTests"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug","-o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.xctest/Contents/MacOS/ReachabilityPackageTests","-module-name","ReachabilityPackageTests","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityPackageTests.product/Objects.LinkFileList","-target","x86_64-apple-macosx13.0","-Xlinker","-add_ast_path","-Xlinker","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.swiftmodule","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.ReachabilityTests-debug.module":
+    tool: shell
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/Tests/ReachabilityTests.swift","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability.swiftmodule","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/sources"]
+    outputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/ReachabilityTests.swift.o","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.swiftmodule"]
+    description: "Compiling Swift Module 'ReachabilityTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","ReachabilityTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.swiftmodule","-output-file-map","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ReachabilityTests.build/sources","-I","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug","-target","x86_64-apple-macosx13.0","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j10","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-color-diagnostics","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/Sources/","/Users/mehul/Downloads/Reachability.swift/Tests/","/Users/mehul/Downloads/Reachability.swift/Package.swift","/Users/mehul/Downloads/Reachability.swift/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
+  "Reachability-debug.module-resources":
+    tool: phony
+    inputs: ["/Users/mehul/Downloads/Reachability.swift/.build/x86_64-apple-macosx/debug/Reachability_Reachability.bundle/PrivacyInfo.xcprivacy"]
+    outputs: ["<Reachability-debug.module-resources>"]
+

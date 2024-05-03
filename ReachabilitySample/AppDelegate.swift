@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Reachability Sample
+//  InternetReachability Sample
 //
 //  Created by Ashley Mills on 22/09/2014.
 //  Copyright (c) 2014 Joylord Systems. All rights reserved.
