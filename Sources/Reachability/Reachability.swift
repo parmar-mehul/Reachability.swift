@@ -43,10 +43,10 @@ public extension Notification.Name {
 	static let reachabilityChanged = Notification.Name("reachabilityChanged")
 }
 
-public class InternetReachability {
+public class Reachability {
 
-	public typealias NetworkReachable = (InternetReachability) -> ()
-	public typealias NetworkUnreachable = (InternetReachability) -> ()
+	public typealias NetworkReachable = (Reachability) -> ()
+	public typealias NetworkUnreachable = (Reachability) -> ()
 
 	@available(*, unavailable, renamed: "Connection")
 	public enum NetworkStatus: CustomStringConvertible {
@@ -166,7 +166,7 @@ public class InternetReachability {
 	}
 }
 
-public extension InternetReachability {
+public extension Reachability {
 
 		// MARK: - *** Notifier methods ***
 	func startNotifier() throws {
@@ -252,7 +252,7 @@ public extension InternetReachability {
 	}
 }
 
-fileprivate extension InternetReachability {
+fileprivate extension Reachability {
 
 	func setReachabilityFlags() throws {
 		try reachabilitySerialQueue.sync { [unowned self] in
@@ -281,7 +281,7 @@ fileprivate extension InternetReachability {
 
 extension SCNetworkReachabilityFlags {
 
-	typealias Connection = InternetReachability.Connection
+	typealias Connection = Reachability.Connection
 
 	var connection: Connection {
 		guard isReachableFlagSet else { return .unavailable }
@@ -398,8 +398,8 @@ extension SCNetworkReachabilityFlags {
  - still allow for automatic stopping of the notifier on `deinit`.
  */
 private class ReachabilityWeakifier {
-	weak var reachability: InternetReachability?
-	init(reachability: InternetReachability) {
+	weak var reachability: Reachability?
+	init(reachability: Reachability) {
 		self.reachability = reachability
 	}
 }
