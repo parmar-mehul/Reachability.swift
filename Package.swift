@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Reachability",
+    name: "InternetReachability",
 	defaultLocalization: "en",
 	platforms: [
 		.iOS(.v13), .macOS(.v13), .watchOS(.v9), .tvOS(.v16)
@@ -12,13 +12,13 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Reachability",
-            targets: ["Reachability"]),
+            name: "InternetReachability",
+            targets: ["InternetReachability"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .target(name: "Reachability",
+        .target(name: "InternetReachability",
 				path: "Sources",
 				resources: [
 					.process("Resources")
